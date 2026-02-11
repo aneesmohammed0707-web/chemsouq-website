@@ -1,0 +1,38 @@
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(10,61,98,0.8), rgba(10,61,98,0.8)),
+                url('https://images.unsplash.com/photo-1581090700227-4c4f50b1b1a6') center/cover no-repeat;
+}
+
+.navbar {
+    background-color: #0A3D62 !important;
+}
+
+.btn-primary {
+    background-color: #0A3D62;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #082C47;
+}
+
+/* WhatsApp Button */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25D366;
+    color: white;
+    font-size: 30px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 60px;
+    text-decoration: none;
+}

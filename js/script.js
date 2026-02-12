@@ -39,17 +39,25 @@ function calculateTotals() {
 async function generatePDF() {
     const { jsPDF } = window.jspdf;
 
-    const invoiceSection = document.querySelector("#einvoice");
+    const pdf = new jsPDF("p", "mm", "a4");
+    let y = 20;
 
-    const canvas = await html2canvas(invoiceSection);
-    const imgData = canvas.toDataURL("image/png");
+    pdf.setFontSize(18);
+    pdf.text("Chemsouq", 105, y, null, null, "center");
+    y += 8;
 
-    const pdf = new jsPDF("p", "pt", "a4");
+    pdf.setFontSize(10);
+    pdf.text("Dubai, UAE | TRN: 100XXXXXXX", 105, y, null, null, "center");
+    y += 15;
 
-    const imgWidth = 595;
-    const pageHeight = 842;
-    const imgHeight = canvas.height * imgWidth / canvas.width;
+    pdf.setFontSize(12);
+    pdf.text("Invoice No: " + document.getElementById("invoiceNo").value, 14, y);
+    y += 8;
 
-    pdf.addImage(imgData, "PNG", 0, 0, imgWidth, imgHeight);
+    pdf.text("Customer: " + document.getElementById("custName").value, 14, y);
+    y += 10;
+
+    pdf.text("Total: AED " + document.getElementById("grandTotal").innerText, 14, y);
+
     pdf.save("Chemsouq-Invoice.pdf");
 }
